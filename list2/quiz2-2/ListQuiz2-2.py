@@ -12,6 +12,7 @@
 
 # 각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 답을 출력한다.
 
+from ast import And
 import sys
 
 sys.stdin = open("input.txt")
@@ -19,5 +20,27 @@ sys.stdin = open("input.txt")
 T = int(input())
 
 
-for test_case in range(1, T + 1):
+
+arr = [_ for _ in range(1,13)]
+subset = [[]]
+
+for num in arr:
+    size = len(subset)
+    for y in range(size):
+        # print(f"subset[y] : {subset[y]}")
+        # print(f"[num] : {num}")
+        subset.append(subset[y]+[num])
+        # print(subset)
+        
+
     
+
+# print(f"arr length :{len(arr)}")
+
+for test_case in range(1, T + 1):
+    subset_cnt, subset_sum = map(int, input().split())
+    rlt = 0
+    for lst in subset:
+        if len(lst) == subset_cnt and sum(lst) == subset_sum:
+            rlt += 1
+    print(f"#{test_case} {rlt}")
