@@ -3,6 +3,7 @@
 # 테스트 케이스 별로 책의 전체 쪽 수 P, A, B가 찾을 쪽 번호 Pa, Pb가 차례로 주어진다. 1<= P, Pa, Pb <=1000
 # [출력]
 # 각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, A, B, 0 중 하나를 출력한다.
+# 실행 시간 : 0.11729s
 import sys
 
 sys.stdin = open("input.txt")
@@ -51,13 +52,3 @@ for test_case in range(1, T + 1):
         result = '0'
 
     print(f"#{test_case} {result}")
-            
-  
-            
-            
-            
-        
-            
-       
-
-    
