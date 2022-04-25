@@ -24,6 +24,7 @@ T = int(input())
 arr = [_ for _ in range(1,13)]
 subset = [[]]
 
+#for 문을 이용한 집합 구하기. 
 for num in arr:
     size = len(subset)
     for y in range(size):
