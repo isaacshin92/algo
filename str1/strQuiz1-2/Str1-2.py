@@ -12,22 +12,23 @@ sys.stdin = open("input.txt")
 # 문자열 슬라이싱  및 비교 함수. 
 def reverseCompare(s, n):
     
-    result = False
+    result = ''
     temp = ''
     
+    
     for i in range(len(s)):
-        temp = s[i:n+i+1]
+        temp = s[i:n+i + 1]
         temp_list = list(temp)
         temp_list.reverse()
         rev = ''.join(temp_list)
         
-        print(f"temp : {temp}")
-        print(f"rev : {rev}")
+        if len(temp) >= n:
+            
+        # print(f"temp : {temp}")
         
-        if temp == rev:
-            return temp
-        else:
-            return False
+            if temp == rev:
+                result = temp
+    return result
 
 T = int(input())
 
@@ -43,10 +44,9 @@ for test_case in range(1, T + 1):
     for i  in range(size):
         result = reverseCompare(board[i],target)
         
-        if result != False:
+        if len(result) > 0:
             rlt = result
-      
-      
+
     #새로 리스트 만들기 
     
     for _ in range(size):
@@ -61,7 +61,7 @@ for test_case in range(1, T + 1):
     
     for i  in range(0, size):
         result = reverseCompare(verti_board[i],target)  
-        if result != False:
+        if len(result) > 0:
             rlt = result
     
     #최종 결과 출력  
