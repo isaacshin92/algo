@@ -1,5 +1,5 @@
-#문자열 비교
-
+#문자열 비교 실행 시간 : 0.11678s
+#  Brute Search 
 import sys 
 
 sys.stdin = open("input.txt")

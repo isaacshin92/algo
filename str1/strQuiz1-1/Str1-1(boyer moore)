@@ -1,0 +1,57 @@
+from ast import Str
+from operator import length_hint
+import sys 
+# 실행 시간 : 0.11220s
+def move(target_str, comp_t): # str -> 찾을 문자열,  t는 문자열에 존재 여부 체크할 놈.
+    
+    result = len(target_str)
+    
+    temp = list(target_str)
+    temp.reverse()
+    revered_str = ''.join(temp)
+    
+    for i in revered_str:
+        if i == comp_t:
+            result = revered_str.index(comp_t)
+            
+    return result 
+
+
+sys.stdin = open("input.txt")
+
+T = int(input())
+
+for test_case in range(1, T + 1):
+    
+    target_str = input()
+    base_str = input()
+    
+    
+    
+    base_i = len(target_str) - 1
+    target_i = len(target_str) - 1
+    # print(f"base_i : {base_i}")
+    # print(f"target_i : {target_i}")
+    # print(f"for 문 반복 횟수 :{len(base_str) - len(target_str) + 1} ")
+    result = '0'
+    
+    for i in range(1,len(base_str) + 1 ):
+
+        if base_i >= len(base_str):
+            result = '0'
+            break
+        
+        if base_str[base_i] != target_str[target_i]:
+            base_i += move(target_str, base_str[base_i])
+            target_i = len(target_str) - 1
+
+            
+        elif base_str[base_i] == target_str[target_i]:
+            base_i -= 1
+            target_i -= 1
+            
+            if target_i < 0:
+                result = '1'
+                break
+            
+    print(f"#{test_case} {result}")        
